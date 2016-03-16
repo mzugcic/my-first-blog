@@ -4,19 +4,15 @@
     </head>
     <body>
         <div>
-            <h1><a href="">Markov Blog</a></h1>
+            <h1><a href="">Marko's Blog</a></h1>
         </div>
 
-        <div>
-            <p>published: 15.03.2016, 20:52</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Chaos in the Old World...</p>
-        </div>
-
-        <div>
-            <p>published: 15.03.2016, 20:58</p>
-            <h3><a href="">My second post</a><h3>
-            <p>Patience my friend... there is order in Chaos!!</p>
-        </div>
+        {% for post in posts %}
+            <div>
+                <p>published> {{ post.published_date }}</p>
+                <h1><a href="">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaks }}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>
