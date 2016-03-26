@@ -21,9 +21,9 @@ class Post(models.Model):
         return self.comments.filter(approved_comment=True)
 
 class Comment(models.Model):
-    post = models.ForeignKey('blog.Post', related_name='comments')
+    post = models.ForeignKey('blog.Post', related_name='comments', default='')
     author = models.CharField(max_length=200)
-    text = models.TextField()
+    text = models.TextField(default='')
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
 
